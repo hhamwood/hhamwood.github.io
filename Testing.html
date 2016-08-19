@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<title>Remedy CI Search</title>
+<html>
+<body>
+
+<meta charset="UTF-8">
+<div class="Cell" style="background-color:darkslateblue; color:white">
+<form id="CISearch" accept-charset="utf-8" action="form_action.asp">
+ <select id="CI">
+  <option value="pcmu">Computer MU</option>
+  <option value="pcser">Computer Serial</option>
+  <option value="monmu">Monitor MU</option>
+  <option value="monser">Monitor Serial</option>
+</select>
+
+  <input id="Number" type="text" name="number">
+  <br>
+<button onclick="CIDetails()">Search</button>
+</form>
+</div>
+
+<script language="javascript">
+function CIDetails(){
+    var ci = document.getElementById("CI").value;
+    var detail= document.getElementById("Number").value;
+    var urlpcmu = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/AST%3AComputerSystem/Best+Practice+View/?qual=%27CI+Name%2a%27LIKE%22";
+    var urlpcser = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/AST%3AComputerSystem/Best+Practice+View/?qual=%27Serial+Number%27LIKE%22";
+    var urlmonmu = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/AST%3AMonitor/Best+Practice+View/?qual=%27CI+Name%2a%27%3D%22";
+    var urlmonser = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/AST%3AMonitor/Best+Practice+View/?qual=%27Serial+Number%27%3D%22";
+    var urlsend = ""
+    var text = "";
+
+detail += "%25%22" + "";
+
+switch(ci) {
+    case "pcmu":
+      urlsend =  urlpcmu + detail;
+      break;
+    case "pcser":
+      urlsend =  urlpcser + detail;
+      break;
+    case "monmu":
+      urlsend =  urlmonmu + detail;
+      break;
+    case "monser":
+      urlsend =  urlmonser + detail;
+      break;
+    default:
+      text = "error";
+  }
+  
+  window.open(urlsend,'iframe_a');
+}
+</script>
+
+<div>
+<iframe name="iframe_a" width="100%" height="900" seamless></iframe>
+</div>
+
+</body>
+</html>

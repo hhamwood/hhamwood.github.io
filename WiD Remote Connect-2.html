@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#nav {
+    line-height:30px;
+    height:300px;
+    width:80px;
+    float:left;
+    padding:5px;	      
+}
+#section {
+    width:75%;
+    float:right;
+    padding:5px;	 	 
+}
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+   padding:5px;	 	 
+}
+.city {
+    float: right;
+    margin: 5px;
+    padding: 15px;
+    width: auto;
+    height: 520px;
+    border: 1px solid black;sp
+}
+
+#blendedMenuV *{
+padding:0;
+margin:0;
+border:0;
+list-style-type:none;
+word-spacing:0px;
+}
+#blendedMenuV{
+display : block;
+position : absolute;
+float : left;
+background-color : darkslateblue;
+border-radius : 4px;
+font-size : 0px;
+box-shadow : 0px 0px 2px 2px rgba(0,0,0,1);
+border-width : 2px;
+border-style : solid;
+border-color : black;
+padding : 0px 0px 0px 7px;
+margin : 0px;
+}
+#blendedMenuV li{
+display : block;
+position : relative;
+}
+#blendedMenuV > li > a{
+display : block;
+text-decoration : none;
+background-size : 100% 100%;
+width : auto;
+height : auto;
+font-size : 14px;
+letter-spacing : 2px;
+min-width : 80px;
+color : white;
+background-color : darkslateblue;
+text-align : left;
+border-radius : 4px;
+line-height : 12px;
+font-family : Arial, Arial, Helvetica, sans-serif;
+border-width : 2px;
+border-style : solid;
+border-color : rgba(0,0,0,0);
+text-shadow : 0px 0px 0px rgba(0,0,0,0);
+box-shadow : 0px 0px 0px 0px rgba(0,0,0,0);
+}
+#blendedMenuV > li > ul > li > a{
+display : block;
+text-decoration : none;
+background-size : 100% 100%;
+width : auto;
+height : auto;
+font-size : 12px;
+letter-spacing : 2px;
+min-width : 100px;
+color : white;
+background-color : darkslateblue;
+text-align : left;
+border-radius : 4px;
+line-height : 12px;
+font-family : 'Trebuchet MS', 'Trebuchet MS', sans-serif;
+border-width : 2px;
+border-style : solid;
+border-color : rgba(0,0,0,0);
+text-shadow : 0px 0px 0px rgba(0,0,0,0);
+box-shadow : 0px 0px 0px 0px rgba(0,0,0,0);
+}
+#blendedMenuV > li > ul > li > ul a{
+display : block;
+text-decoration : none;
+background-size : 100% 100%;
+width : auto;
+height : auto;
+font-size : 12px;
+letter-spacing : 2px;
+min-width : 140px;
+color : rgba(255,160,0,1);
+background-color : darkslateblue;
+text-align : left;
+border-radius : 0px;
+line-height : 12px;
+font-family : 'Trebuchet MS', 'Trebuchet MS', sans-serif;
+border-width : 2px;
+border-style : solid;
+border-color : rgba(0,0,0,0);
+text-shadow : 0px 0px 0px rgba(0,0,0,0);
+box-shadow : 0px 0px 0px 0px rgba(0,0,0,0);
+}
+#blendedMenuV > li > ul{
+display : block;
+position : absolute;
+background-color : darkslateblue;
+top : 0px;
+z-index : 10;
+visibility : hidden;
+left : 100%;
+opacity : 0;
+box-shadow : 0px 0px 4px 2px rgba(0,0,0,1);
+border-radius : 14px;
+-webkit-transition : all 0.4s;
+transition : all 0.4s;
+border-width : 2px;
+border-style : solid;
+border-color : rgba(255,160,0,1);
+padding : 0px 0px 0px 7px;
+margin : 0px 0px 0px 4px;
+}
+#blendedMenuV > li > ul > li > ul{
+display : block;
+position : absolute;
+background-color : darkslateblue;
+top : 0px;
+z-index : 10;
+visibility : hidden;
+left : 100%;
+opacity : 0;
+box-shadow : 0px 0px 4px 2px rgba(0,0,0,1);
+border-radius : 14px;
+-webkit-transition : all 0.4s;
+transition : all 0.4s;
+border-width : 2px;
+border-style : solid;
+border-color : rgba(255,160,0,1);
+padding : 0px 0px 0px 7px;
+margin : 0px 0px 0px 4px;
+}
+#blendedMenuV li:hover > a{
+color : rgba(20,255,0,1);
+background-color : rgba(0,0,0,0);
+}
+#blendedMenuV .active > a{
+color : rgba(255,160,0,1);
+background-color : rgba(0,0,0,0);
+}
+#blendedMenuV > li > ul > li:hover > ul{
+visibility : visible;
+opacity : 1;
+}
+#blendedMenuV > li:hover > ul{
+visibility : visible;
+opacity : 1;
+}
+#blendedMenuV li:hover::after{
+display : block;
+position : absolute;
+border : 5px solid rgba(255,160,0,1);
+content : "";
+height : 0px;
+width : 0px;
+border-radius : 5px;
+right : 5px;
+margin-top : -5px;
+top : 50%;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="header" style="background-color:darkslateblue; color:white">
+<h2>WiD Remote Login</h2>
+</div>
+
+
+<nav>
+<ul id="blendedMenuV">
+<li><a href="#">3A - 27 Chancellors Walk</a>
+<ul>
+<li><a href="http://118.138.177.206/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.177.204/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a112</a></li>
+<li><a href="http://118.138.177.205/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a124</a></li>
+<li><a href="http://118.138.177.208/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">ag33</a></li>
+<li><a href="http://118.138.177.217/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">ag29</a></li>
+<li><a href="http://118.138.177.214/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">ag36</a></li>
+<li><a href="http://118.138.177.216/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">ag37</a></li>
+<li><a href="http://118.138.177.215/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">ag48</a></li>
+</ul>
+</li>
+<li><a href="#">06 - 29 Ancora Imparo Way</a>
+<ul>
+<li><a href="http://118.138.213.129/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">164</a></li>
+<li><a href="http://118.138.213.130/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">245</a></li>
+</ul>
+</li>
+<li><a href="#">08 - 46 Exhibition Walk</a>
+<ul>
+<li><a href="http://118.138.212.215/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">R7</a></li>    
+</ul>
+</li>    
+<li><a href="#">10 - 21 Chancellors Walk</a>
+<ul>
+<li><a href="http://118.138.212.211/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">g114</a></li>    
+</ul>
+</li>
+<li><a href="#">11 - 20 Chancellors Walk</a>
+<ul>
+<li><a href="http://118.138.213.133/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">E363</a></li>
+<li><a href="http://118.138.179.39/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">E457</a></li>
+<li><a href="http://118.138.136.175/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">H1</a></li>
+<li><a href="http://118.138.213.201/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">H2</a></li>
+<li><a href="http://118.138.213.202/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">H3</a></li>
+<li><a href="http://118.138.137.170/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">H4???</a></li>
+<li><a href="http://118.138.136.116/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">H4</a></li>
+<li><a href="http://118.138.213.203/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">H5</a></li>
+<li><a href="http://118.138.213.204/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">H6</a></li>
+<li><a href="http://118.138.136.9/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">H7</a></li>
+<li><a href="http://118.138.179.40/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">W204</a></li>
+<li><a href="http://118.138.213.155/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">W210</a></li>
+<li><a href="http://118.138.213.141/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">W211</a></li>
+<li><a href="http://118.138.213.148/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">W215</a></li>
+<li><a href="http://118.138.213.137/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">W216</a></li>
+<li><a href="http://118.138.213.135/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">W218</a></li>
+<li><a href="http://118.138.213.136/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">W220</a></li>
+<li><a href="http://118.138.213.131/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">W303</a></li>
+<li><a href="http://118.138.213.138/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">W310</a></li>    
+</ul>
+</li>
+<li><a href="#">12 - 15 Ancora Imparo Way</a>
+<ul>
+<li><a href="http://118.138.213.139/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">g01</a></li>
+<li><a href="http://118.138.213.206/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">g08</a></li>
+<li><a href="http://118.138.213.132/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">g09</a></li>
+<li><a href="http://118.138.168.35/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">l3</a></li>    
+</ul>
+</li>
+<li><a href="#">13A - 37 Rainforest Walk</a>
+<ul>
+<li><a href="http://118.138.172.168/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">am2</a></li>
+<li><a href="http://118.138.172.169/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">am3</a></li>    
+</ul>
+</li>
+<li><a href="#">13D - 35 Rainforest Walk</a>
+<ul>
+<li><a href="http://118.138.172.143/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">dm1</a></li>    
+</ul>
+</li>
+<li><a href="#">13F - 26 Innovation Walk</a>
+<ul>
+<li><a href="http://118.138.172.122/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">f122d</a></li>
+<li><a href="http://118.138.172.178/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">fg21</a></li>    
+</ul>
+</li>
+<li><a href="#">17 - 18 Innovation Walk</a>
+<ul>
+<li><a href="http://118.138.212.52/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">143</a></li>    
+</ul>
+</li>
+<li><a href="#">18 - 25 Rainforest Walk</a>
+<ul>
+<li><a href="http://172.17.152.117/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">g26/g28</a></li>    
+</ul>
+</li>
+<li><a href="#">21 - 21 Rainforest Walk</a>
+<ul>
+<li><a href="http://118.138.128.55/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">S7</a></li>    
+</ul>
+</li>
+<li><a href="#">22 - 23 Rainforest Walk</a>
+<ul>
+<li><a href="http://118.138.212.54/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">g04</a></li>    
+</ul>
+</li>
+<li><a href="#">24 - 15 Rainforest Walk</a>
+<ul>
+<li><a href="http://118.138.128.77/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">S5</a></li>
+<li><a href="http://118.138.128.69/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">S6</a></li>    
+</ul>
+</li>
+<li><a href="#">25 - 16 Rainforest Walk</a>
+<ul>
+<li><a href="http://118.138.128.96/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">S01</a></li>
+<li><a href="http://118.138.128.75/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">S02</a></li>
+<li><a href="http://118.138.128.1/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">S03</a></li>
+<li><a href="http://118.138.128.72/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">S04</a></li>
+<li><a href="http://118.138.128.3/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">S09</a></li>
+<li><a href="http://118.138.128.71/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">S10</a></li>
+<li><a href="http://118.138.128.110/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">S11</a></li>
+<li><a href="http://118.138.128.111/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">S12</a></li>    
+</ul>
+</li>
+<li><a href="#">28 - 9 Rainforest Walk</a>
+<ul>
+<li><a href="http://118.138.162.68/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">107</a></li>
+<li><a href="http://118.138.162.69/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">302</a></li>
+<li><a href="http://118.138.162.77/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">345</a></li>    
+</ul>
+</li>
+<li><a href="#">32 - 21 College Walk</a>
+<ul>
+<li><a href="http://118.138.153.84/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">E1</a></li>    
+</ul>
+</li>
+<li><a href="#">47 - 58 College Way</a>
+<ul>
+<li><a href="http://118.138.196.112/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">cb18</a></li>    
+</ul>
+</li>
+<li><a href="#">50 - 32 Exhibition Walk</a>
+<ul>
+<li><a href="http://118.138.212.217/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.212.218/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.212.219/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>    
+</ul>
+</li>
+<li><a href="#">56 - 30 Research Way</a>
+<ul>
+<li><a href="http://172.17.168.17/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://172.17.168.24/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://172.17.168.25/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.179.2/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.179.3/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>    
+</ul>
+</li>
+<li><a href="#">63 - 25 Exhibition Walk</a>
+<ul>
+<li><a href="http://118.138.212.53/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>    
+</ul>
+</li>
+<li><a href="#">64 - 43 Rainforest Walk</a>
+<ul>
+<li><a href="http://118.138.172.175/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.172.176/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.172.16/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>    
+</ul>
+</li>
+<li><a href="#">72 - 14 Alliance Lane</a>
+<ul>
+<li><a href="http://118.138.153.96/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.153.88/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.153.89/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.153.90/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.153.92/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.153.93/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>    
+</ul>
+</li>
+<li><a href="#">73 - 49 Rainforest Walk</a>
+<ul>
+<li><a href="http://118.138.228.117/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.143/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.144/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.145/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.126/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.127/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.118/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.128/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.129/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.130/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.131/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.132/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.133/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.2/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.120/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.121/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.4/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.122/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.123/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.124/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.125/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.96/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.114/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.111/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.8/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.112/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.115/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.113/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.140/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.205/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.228.116/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.134/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.142/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>    
+</ul>
+</li>
+<li><a href="#">73P - 33 Innovation Walk</a>
+<ul>
+<li><a href="http://118.138.213.173/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.177/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.182/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.184/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.189/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.195/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.196/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.197/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.158/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.159/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.160/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.161/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.162/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.190/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.194/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.193/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.192/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.191/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.188/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.187/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.186/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.185/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.183/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.198/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.199/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.200/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.181/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.180/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.179/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.178/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.164/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.165/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.166/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.167/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.168/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.163/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.169/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.170/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.171/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.176/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.172/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.174/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.213.175/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>    
+</ul>
+</li>
+<li><a href="#">79P - 7 Innovation Walk</a>
+<ul>
+<li><a href="http://118.138.229.161/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.229.162/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.229.163/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.229.164/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.229.159/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.229.160/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.212.56/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.229.156/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.229.165/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.229.166/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.229.167/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.229.157/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.229.158/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.212.57/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.229.168/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.229.169/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.229.170/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.229.171/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>    
+</ul>
+</li>
+<li><a href="#">81 - 10 Innovation Walk</a>
+<ul>
+<li><a href="http://118.138.212.55/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>    
+</ul>
+</li>
+<li><a href="#">88 - 27 Sports Walk</a>
+<ul>
+<li><a href="http://118.138.196.8/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.195.244/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.195.245/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>    
+</ul>
+</li>
+<li><a href="#">89 - 21 Sports Walk</a>
+<ul>
+<li><a href="http://118.138.196.5/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.195.246/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.196.7/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>
+<li><a href="http://118.138.196.6/cgi-bin/login_admin.cgi?lang=en" target="iframe_content">a110</a></li>    
+</ul>
+</li>
+</ul>
+</nav>
+
+<div id="section">
+<iframe width="100%" height="520px" name="iframe_content"></iframe>
+</div>
+
+</body>
+</html>

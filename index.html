@@ -1,0 +1,275 @@
+<!-- 
+Author: Hayden Hamwood <mailto:hayden.hamwood@monash.edu>
+Latest Update: 19/08/2016 
+
+Changes 19/08/2016:
+[Ticket Lookup]
+Combining INC/REQ Lookup to a drop-down menu
+Adding PRB/CRQ Lookup
+[Asset Lookup]
+Combining Computer CI/Monitor CI to a drop down menu
+Adding Computer Serial/Monitor Serial to Assset Lookup
+[Customer Lookup]
+Combining Customer Ticket search/Staff Profile Lookup to a drop down menu
+
+Future enhancements:
+[Knowledge Search]
+Add KBA title search
+Add KBA Number search
+Combine KBA searches to drop down menu
+-->
+
+<!DOCTYPE html>
+<title>Remedy Helper</title>
+<body style="background-color: rgb(212, 223, 229)">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/lib/w3.css">
+
+<style type="text/css">
+    .Table
+    {
+        display: table;
+    }
+    .Title
+    {
+        display: table-caption;
+        text-align: left;
+        font-weight: bold;
+        font-size: larger;
+    }
+    .Heading
+    {
+        display: table-row;
+        font-weight: bold;
+        text-align: left;
+    }
+    .Row
+    {
+        display: table-row;
+    }
+    .Cell
+    {
+        display: table-cell;
+        border: none;
+        border-width: thin;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+	.sansserif 
+	{
+    font-family: "Trebuchet MS", Geneva, sans-serif;
+	}
+	
+</style>
+
+<script> 
+function toggle() {
+	var ele = document.getElementById("toggleText");
+	var text = document.getElementById("displayText");
+	if(ele.style.display == "block") {
+    		ele.style.display = "none";
+		text.innerHTML = "Show";
+  	}
+	else {
+		ele.style.display = "block";
+		text.innerHTML = "Hide";
+	}
+} 
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-70612214-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+    <div style="display: block;background-color: rgb(212, 223, 229)">
+    <button class="sansserif" id="displayText" onclick="javascript:toggle();">Hide</button>
+    <button onclick="RemedyHome()">Remedy Home</button>
+    <button onclick="window.open('#')" formtarget="_blank">New Tab</button>
+    </div>
+
+<script> 
+function RemedyHome() {
+var homeurl = "https://servicedeskonline.onbmc.com/arsys/";
+window.open(homeurl,'iframe_a');
+}
+</script>
+
+<div class="sansserif" id="toggleText" style="display: block;background-color:#2188c9">
+<div class="Table">
+<div class="Heading">
+    
+    <div class="Cell" style="background-color:#2188c9; color:white;border: 1px solid rgb(212,223,229);">
+        <p><form id="TicketSearch" action="form_action.asp">
+        Ticket Lookup<br>
+         <select id="Ticket">
+          <option value="inc">INC Number</option>
+          <option value="req">REQ Number</option>
+          <option value="prb">PRB Number</option>
+          <option value="crq">CRQ Number</option>
+        </select>
+        <input id="TicketNumber" type="text" name="number">
+        </form>
+        
+        <button onclick="TicketSearch()">Search</button>
+        
+        <script>
+        function TicketSearch(){
+            var TicketType = document.getElementById("Ticket").value;
+            var detail = document.getElementById("TicketNumber").value;
+            var urlinc = "https://servicedeskonline.onbmc.com/arsys/servlet/ViewFormServlet?form=HPD%3AHelp+Desk&server=monash-s&qual=%271000000161%27LIKE%22%25";
+            var urlreq = "https://servicedeskonline.onbmc.com/arsys/servlet/ViewFormServlet?form=HPD%3AHelp+Desk&server=monash-s&qual=%27%2FSRM+ID%27LIKE%22%25";
+            var urlprb = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/PBM%3AProblem+Investigation/Default+Administrator+View/?qual=%27Problem+ID%2a%2b%27LIKE%22%25";
+            var urlcrq = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/CHG%3AInfrastructure+Change/Best+Practice+View/?qual=%27Change+ID%2a%2b%27LIKE%22%25";
+            var urlsend = ""
+            var text = "";
+        
+        detail += "%22" + "";
+        
+        switch(TicketType) {
+            case "inc":
+              urlsend =  urlinc + detail;
+              break;
+            case "req":
+              urlsend =  urlreq + detail;
+              break;
+            case "prb":
+              urlsend =  urlprb + detail;
+              break;
+            case "crq":
+              urlsend =  urlcrq + detail;
+              break;
+          }
+          window.open(urlsend,'iframe_a');
+        }
+        </script>
+    </div>
+
+    <div class="Cell" style="background-color:#2188c9; color:white;border: 1px solid rgb(212,223,229)">
+        <p><form id="CISearch" action="form_action.asp">
+        Asset Lookup<br>
+         <select id="CI">
+          <option value="pcmu">Computer MU</option>
+          <option value="pcser">Computer Serial</option>
+          <option value="monmu">Monitor MU</option>
+          <option value="monser">Monitor Serial</option>
+        </select>
+        <input id="Number" type="text" name="number">
+        </form>
+        
+        <button onclick="CIDetails()">Search</button>
+        
+        <script>
+        function CIDetails(){
+            var ci = document.getElementById("CI").value;
+            var detail= document.getElementById("Number").value;
+            var urlpcmu = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/AST%3AComputerSystem/Best+Practice+View/?qual=%27CI+Name%2a%27LIKE%22";
+            var urlpcser = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/AST%3AComputerSystem/Best+Practice+View/?qual=%27Serial+Number%27LIKE%22";
+            var urlmonmu = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/AST%3AMonitor/Best+Practice+View/?qual=%27CI+Name%2a%27LIKE%22";
+            var urlmonser = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/AST%3AMonitor/Best+Practice+View/?qual=%27Serial+Number%27LIKE%22";
+            var urlsend = ""
+            var text = "";
+        
+        detail += "%25%22" + "";
+        
+        switch(ci) {
+            case "pcmu":
+              urlsend =  urlpcmu + detail;
+              break;
+            case "pcser":
+              urlsend =  urlpcser + detail;
+              break;
+            case "monmu":
+              urlsend =  urlmonmu + detail;
+              break;
+            case "monser":
+              urlsend =  urlmonser + detail;
+              break;
+            default:
+              text = "error";
+          }
+          window.open(urlsend,'iframe_a');
+        }
+        </script>
+    </div>
+
+    <div class="Cell" style="background-color:#2188c9; color:white;border: 1px solid rgb(212,223,229)">
+        <p><form id="CustomerSearch" action="form_action.asp">
+        Customer Lookup<br>
+        <select id="Customer">
+          <option value="CustTix">Customer Tickets</option>
+          <option value="StaffProfile">Staff Profile</option>
+        </select>
+        First: <input type="text" id="fname" value="">
+        Last: <input type="text" id="lname" value="">
+        </form>
+        
+        <button onclick="CustLookup()">Search</button>
+        
+        <script>
+        function CustLookup(){
+            var TicketType = document.getElementById("Customer").value;
+            var FirstName = document.getElementById("fname").value;
+			var LastName = document.getElementById("lname").value;
+            var urltix = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/SHR%3ALandingConsole/Default+Administrator+View/?mode=search&F304255500=HPD%3AHelp+Desk&F1000000076=FormOpenNoAppList&F303647600=SearchTicketWithQual&F304255610=%27First+Name%27LIKE%22%25";
+            var urlprofile = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/CTM%3APeople/Default+User+View/?qual=%27First+Name%2a%27LIKE%22";
+ 			var urlLNProfile = "%25%25%22+AND+%27Last+Name%2a%2B%27LIKE%22";
+			var urlstaffprofile = "%25%22+AND+%27Contact+Type%27%3D%22General+Staff%22";
+			var urlLNCustTix = "%25%25%22+AND+%27Last+Name%27LIKE%22%25";
+			var urlsend = "";
+            var text = "";
+            var detail = "%25%22";
+        
+        switch(TicketType) {
+            case "CustTix":
+              urlsend =  urltix + FirstName + urlLNCustTix + LastName + detail;
+              break;
+            case "StaffProfile":
+              urlsend =  urlprofile + FirstName + urlLNProfile + LastName + urlstaffprofile;
+              break;
+          }          
+          window.open(urlsend,'iframe_a');
+        }
+        </script>
+    </div>
+
+    <div class="Cell" style="background-color:#2188c9; color:white;border: 1px solid rgb(212,223,229)">
+        <p><form id="frm5" action="form_action.asp">
+        KBA Keyword Search:<br>
+        <input type="text" name="crq" value="">
+        </form>
+        
+        <button onclick="KnowledgeSearch()">Search</button>
+        
+        <script>
+        function KnowledgeSearch() {
+            var yy = document.getElementById("frm5");
+            var crq = "";
+            var url31 = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/RKM%3AKnowledgeArticleManager/Display+View/?qual=%27Keywords%27LIKE%22%25";
+            var url32 = "%25%22+AND+%27Status*%27%3C+900";
+            var urlcrq = "";
+            var test5 = url31;
+            var t = 0;
+        
+        test5 += yy.elements[t].value + "";
+        test5 += url32 + "";
+        
+        window.open(test5,'iframe_a');
+        }
+        </script>
+    </div>
+
+</div>
+</div>  
+</div>
+
+    <div>
+    <iframe name="iframe_a" style="position: absolute; width: 99%; height:100%; border: none"></iframe>
+    </div>
+    
+</body>

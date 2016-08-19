@@ -1,0 +1,199 @@
+<!-- very ugly coding done on the fly. I may fix it up if needed.  HH-->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="container" style="width:100%" align="center">
+<div id="header">
+<style>
+
+table, th, td
+{
+border:1px solid black;
+padding:2px;
+}
+table
+{
+border-spacing:2px;
+}
+</style>
+
+<table>
+<tr>
+  <td width ="300">
+<p font="arial">List of KB Articles created by Service Centre 2014</p>
+<form id="kbcentre" action="form_action.asp">
+<select name="kbcentre">
+<option value="AVCS+Operations">AVCS Operations</option>
+<option value="Logistics+Centre">Logistics</option>
+<option value="Service+Centre+Clayton+-+Admin">SC Admin</option>
+<option value="Service+Centre+-+Berwick">SC Berwick</option>
+<option value="Service+Centre+-+Caulfield">SC Caulfield</option>
+<option value="Service+Centre+City">SC City</option>
+<option value="Service+Centre+Engineering">SC Engineering</option>
+<option value="Service+Centre+FIT">SC FIT</option>
+<option value="Service+Centre+Clayton+-+Health">SC Health</option>
+<option value="Service+Centre+Clayton+-+Humanities">SC Humanities</option>
+<option value="Service+Centre+MMC">SC MMC</option>
+<option value="Service+Centre+-+Peninsula">SC Peninsula</option>
+<option value="Service+Centre+Clayton+-+Sciences">SC Sciences</option>
+</select>
+</form>
+
+<button onclick="myFunction()">Search</button>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("kbcentre");
+    var url1 = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/RKM%3aKnowledgeArticleManager/Display+View/?qual=%27Owner+Group%2B%27%3D%22";
+var url2 = "%22+AND+%27Submit+Date%27%3E%3D%2201%2F01%2F2014+00%3A00%3A00%22";
+var url = "";
+var test = url1;
+    var i = 0;
+    test += x.elements[i].value + "";
+test += url2 + "";
+url = "<a href=" + test + " target=iframe_a" + ">Remedy Profile</a>"
+    
+<!--document.getElementById("kbcentre").innerHTML = url;-->
+
+window.open(test,'iframe_a');
+}
+</script></td>
+
+<td width ="300">
+<p font="arial">List of Incidents with related KB Articles 2014</p>
+<form id="inccentre" action="form_action.asp">
+<select name="inccentre">
+<option value="AVCS+Operations">AVCS Operations</option>
+<option value="Logistics+Centre">Logistics</option>
+<option value="Service+Centre+Clayton+-+Admin">SC Admin</option>
+<option value="Service+Centre+-+Berwick">SC Berwick</option>
+<option value="Service+Centre+-+Caulfield">SC Caulfield</option>
+<option value="Service+Centre+City">SC City</option>
+<option value="Service+Centre+Engineering">SC Engineering</option>
+<option value="Service+Centre+FIT">SC FIT</option>
+<option value="Service+Centre+Clayton+-+Health">SC Health</option>
+<option value="Service+Centre+Clayton+-+Humanities">SC Humanities</option>
+<option value="Service+Centre+MMC">SC MMC</option>
+<option value="Service+Centre+-+Peninsula">SC Peninsula</option>
+<option value="Service+Centre+Clayton+-+Sciences">SC Sciences</option>
+</select>
+</form>
+
+<button onclick="myFunction2()">Search</button>
+
+<script>
+function myFunction2() {
+    var y = document.getElementById("inccentre");
+    var url11 = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/HPD%3ASearch-Associations/Default+User+View/?qual=%27Form+Name%27%3D%22RKM:KnowledgeArticleManager%22+AND+%27Assigned+Group%27%3D%22";
+var url12 = "%22+AND+%27Submit+Date%27%3E%3D%2201%2F01%2F2014+00%3A00%3A00%22";
+var urlinc = "";
+var test2 = url11;
+    var i = 0;
+    test2 += y.elements[i].value + "";
+test2 += url12 + "";
+urlinc = "<a href=" + test2 + " target=iframe_a" + ">Remedy Profile</a>"
+    
+<!--document.getElementById("inccentre").innerHTML = url;-->
+
+window.open(test2,'iframe_a');
+}
+</script></td>
+
+
+
+<td width ="300">
+<p font="arial">List of Incidents with related CI 2014</p>
+<form id="cicentre" action="form_action.asp">
+<select name="cicentre">
+<option value="AVCS+Operations">AVCS Operations</option>
+<option value="Logistics+Centre">Logistics</option>
+<option value="Service+Centre+Clayton+-+Admin">SC Admin</option>
+<option value="Service+Centre+-+Berwick">SC Berwick</option>
+<option value="Service+Centre+-+Caulfield">SC Caulfield</option>
+<option value="Service+Centre+City">SC City</option>
+<option value="Service+Centre+Engineering">SC Engineering</option>
+<option value="Service+Centre+FIT">SC FIT</option>
+<option value="Service+Centre+Clayton+-+Health">SC Health</option>
+<option value="Service+Centre+Clayton+-+Humanities">SC Humanities</option>
+<option value="Service+Centre+MMC">SC MMC</option>
+<option value="Service+Centre+-+Peninsula">SC Peninsula</option>
+<option value="Service+Centre+Clayton+-+Sciences">SC Sciences</option>
+</select>
+</form>
+
+<button onclick="myFunction3()">Search</button>
+
+<script>
+function myFunction3() {
+    var y = document.getElementById("cicentre");
+    var url11 = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/HPD%3ASearch-Associations/Default+User+View/?qual=%27Form+Name%27%3D%22AST:ComputerSystem%22+AND+%27Assigned+Group%27%3D%22";
+var url12 = "%22+AND+%27Submit+Date%27%3E%3D%2201%2F01%2F2014+00%3A00%3A00%22";
+var urlinc = "";
+var test2 = url11;
+    var i = 0;
+    test2 += y.elements[i].value + "";
+test2 += url12 + "";
+urlinc = "<a href=" + test2 + " target=iframe_a" + ">Remedy Profile</a>"
+    
+<!--document.getElementById("cicentre").innerHTML = url;-->
+
+window.open(test2,'iframe_a');
+}
+</script></td>
+
+
+
+<td width ="300">
+<p font="arial">Incidents with related items 2014</p>
+<form id="relcentre" action="form_action.asp">
+<select name="relcentre">
+<option value="AVCS+Operations">AVCS Operations</option>
+<option value="Logistics+Centre">Logistics</option>
+<option value="Service+Centre+Clayton+-+Admin">SC Admin</option>
+<option value="Service+Centre+-+Berwick">SC Berwick</option>
+<option value="Service+Centre+-+Caulfield">SC Caulfield</option>
+<option value="Service+Centre+City">SC City</option>
+<option value="Service+Centre+Engineering">SC Engineering</option>
+<option value="Service+Centre+FIT">SC FIT</option>
+<option value="Service+Centre+Clayton+-+Health">SC Health</option>
+<option value="Service+Centre+Clayton+-+Humanities">SC Humanities</option>
+<option value="Service+Centre+MMC">SC MMC</option>
+<option value="Service+Centre+-+Peninsula">SC Peninsula</option>
+<option value="Service+Centre+Clayton+-+Sciences">SC Sciences</option>
+</select>
+</form>
+
+<button onclick="myFunction4()">Search</button>
+
+<script>
+function myFunction4() {
+    var y = document.getElementById("relcentre");
+    var url11 = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/HPD%3ASearch-Associations/Default+User+View/?qual=%27Assigned+Group%27%3D%22";
+var url12 = "%22+AND+%27Submit+Date%27%3E%3D%2201%2F01%2F2014+00%3A00%3A00%22";
+var urlinc = "";
+var test3 = url11;
+    var i = 0;
+    test3 += y.elements[i].value + "";
+test3 += url12 + "";
+urlinc = "<a href=" + test3 + " target=iframe_a" + ">Remedy Profile</a>"
+    
+<!--document.getElementById("cicentre").innerHTML = url;-->
+
+window.open(test3,'iframe_a');
+}
+</script></td>
+
+
+
+
+</tr>
+</table>
+
+<div>
+<iframe name="iframe_a" width="100%" height="900"></iframe>
+</div>
+
+</body>
+</html>
