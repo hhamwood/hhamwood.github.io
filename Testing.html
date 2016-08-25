@@ -53,6 +53,25 @@ switch(ci) {
 }
 </script>
 
+<script>
+web.customRequest(
+		{
+			name : 'frameset', 
+			url : 'https://servicedeskonline.onbmc.com/arsys/frameset?__resourceFolder=%2Fopt%2Fbmc%2Fmidtier%2Fwebapps%2Farsys%2Flibraries%2Fmonash-s&__ui=-442379583&__report=%2Fusr%2Fshare%2Ftomcat%2Fwebapps%2Farsys%2Freports%2Fm11c23c11b16%2FLCCV77H2XDN87JDKJ0FNVR2MKQ01TP0C%2FStatus20Count.rptdesign&__svg=false&__locale=en_AU&__timezone=AET&__sessionId=20160825_030019_078&__dpi=96', 
+			method : 'POST',
+			targetFrame:"iframe_a",
+			resource : 0, 
+			recContentType : 'text/xml', 
+			referer : 'https://servicedeskonline.onbmc.com/arsys/servlet/ReportServlet/1472094018344', 
+			snapshot : 't9.inf', 
+			mode : 'HTML', 
+			encType : 'application/soap+xml, text/xml; charset=UTF-8', 
+			bodyBinary : '\\xEF\\xBB\\xBF<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><Body xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\"><GetUpdatedObjects xmlns=\"http://schemas.eclipse.org/birt\"><Operation><Target><Id>Document</Id><Type>Document</Type></Target><Operator>GetPage</Operator><Oprand><Name>__page</Name><Value>1</Value></Oprand><Oprand><Name>__svg</Name><Value>false</Value></Oprand><Oprand><Name>__page</Name><Value>1</Value></Oprand><Oprand><Name>__taskid</Name' + 
+		'><Value>2016-7-25-13-0-23-638</Value></Oprand></Operation></GetUpdatedObjects></Body></soap:Envelope>'
+		}
+	);</script>
+
+
 <div>
 <iframe name="iframe_a" width="100%" height="900" seamless></iframe>
 </div>
