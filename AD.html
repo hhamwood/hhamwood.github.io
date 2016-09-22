@@ -4,53 +4,49 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script> 
-function getUserName() {
- var wshNetwork = new ActiveXObject("WScript.Network");
- var userName = wshNetwork.UserName; 
- return userName;
+function Search(search,SearchType) {
+var arrSearchResult = [];
+var strSearch = '';
+switch(SearchType) {
+case "contains":
+strSearch = "*"+search+"*";
+break;
+case "begins":
+strSearch = search+"*";
+break;
+case "ends":
+strSearch = "*"+search;
+break;
+case "exact":
+strSearch = search;
+break;
+default:
+strSearch = "*"+search+"*";
+break;
 }
- </script>
- 
- <script>
-function getAD(userName) {
- //var name = userName.split(".");
- objConnection = new ActiveXObject("ADODB.Connection");
- objConnection.Provider="ADsDSOObject";
- objConnection.Open("ADs Provider");
- objCommand = new ActiveXObject("ADODB.Command");
- objCommand.ActiveConnection = objConnection;
- 
- objCommand.CommandText = "SELECT sAMAccountName, givenName, SN, mail FROM 'LDAP://ad.monash.edu/OU=User Accounts,OU=User Directory,DC=ad,DC=mycompany,DC=com' WHERE objectCategory='user' and sAMAccountName = '"+userName+"'";
- 
- /* Next up is the command itself.*/
- objRecordSet = objCommand.Execute();
- 
- /* Then we execute the command */
- /* Once executed, the command will return an enumeration of the results.*/
- 
- var userMail,lastName,firstName;
- if (objRecordSet.RecordCount == 1) {
-  objRecordSet.Movefirst;  
-  userMail = objRecordSet.Fields("mail").value;
-  firstName = objRecordSet.Fields("givenName").value;
-  lastName = objRecordSet.Fields("SN").value;
- }
- else
- {  
-  userMail = "";
-  firstName = "";
-  lastName = "";
- }
- objConnection.Close;
- 
- return userMail+";"+firstName+";"+lastName;
-}
+objRootDSE = GetObject("LDAP://RootDSE");
+strDomain = objRootDSE.Get("DefaultNamingContext");
 
-var AD = getAD(getUserName()).split(";");
- 
-var mail = AD[0];
-var firstName = AD[1];
-var lastName = AD[2];
+strOU = "OU=Users"; // Set the OU to search here.
+strAttrib = "name,samaccountname"; // Set the attributes to retrieve here.
+
+objConnection = new ActiveXObject("ADODB.Connection");
+objConnection.Provider="ADsDSOObject";
+objConnection.Open("ADs Provider");
+objCommand = new ActiveXObject("ADODB.Command");
+objCommand.ActiveConnection = objConnection;
+var Dom = "LDAP://"+strOU+","+strDomain;
+var arrAttrib = strAttrib.split(",");
+objCommand.CommandText = "select '"+strAttrib+"' from '"+Dom+"' WHERE objectCategory = 'user' AND objectClass='user' AND samaccountname='"+search+"' ORDER BY samaccountname ASC";
+
+try {
+
+objRecordSet = objCommand.Execute();
+
+objRecordSet.Movefirst;
+while(!(objRecordSet.EoF)) {
+var locarray = new Array();
+for(var y = 0; y < arrAttrib.length; y++) { locarray.push(objRecordSet.Fields(y).value); } arrSearchResult.push(locarray); objRecordSet.MoveNext; } return arrSearchResult; } catch(e) { alert(e.message); } }
 </script>
 
 <button type="button"
