@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<title>AD Lookup</title>
+<body style="background-color: rgb(212, 223, 229)">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+function getUserName() {
+ var wshNetwork = new ActiveXObject("WScript.Network");
+ var userName = wshNetwork.UserName; 
+ return userName;
+}
+ 
+function getAD(userName) {
+ //var name = userName.split(".");
+ objConnection = new ActiveXObject("ADODB.Connection");
+ objConnection.Provider="ADsDSOObject";
+ objConnection.Open("ADs Provider");
+ objCommand = new ActiveXObject("ADODB.Command");
+ objCommand.ActiveConnection = objConnection;
+ 
+ objCommand.CommandText = "SELECT sAMAccountName, givenName, SN, mail FROM 'LDAP://ad.monash.edu/OU=User Accounts,OU=User Directory,DC=ad,DC=mycompany,DC=com' WHERE objectCategory='user' and sAMAccountName = '"+userName+"'";
+ 
+ /* Next up is the command itself.*/
+ objRecordSet = objCommand.Execute();
+ 
+ /* Then we execute the command */
+ /* Once executed, the command will return an enumeration of the results.*/
+ 
+ var userMail,lastName,firstName;
+ if (objRecordSet.RecordCount == 1) {
+  objRecordSet.Movefirst;  
+  userMail = objRecordSet.Fields("mail").value;
+  firstName = objRecordSet.Fields("givenName").value;
+  lastName = objRecordSet.Fields("SN").value;
+ }
+ else
+ {  
+  userMail = "";
+  firstName = "";
+  lastName = "";
+ }
+ objConnection.Close;
+ 
+ return userMail+";"+firstName+";"+lastName;
+}
+ 
+var AD = getAD(getUserName()).split(";");
+ 
+var mail = AD[0];
+var firstName = AD[1];
+var lastName = AD[2];
