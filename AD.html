@@ -3,13 +3,15 @@
 <body style="background-color: rgb(212, 223, 229)">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
+<script> 
 function getUserName() {
  var wshNetwork = new ActiveXObject("WScript.Network");
  var userName = wshNetwork.UserName; 
  return userName;
 }
+ </script>
  
+ <script>
 function getAD(userName) {
  //var name = userName.split(".");
  objConnection = new ActiveXObject("ADODB.Connection");
@@ -43,10 +45,13 @@ function getAD(userName) {
  
  return userMail+";"+firstName+";"+lastName;
 }
- 
+
 var AD = getAD(getUserName()).split(";");
  
 var mail = AD[0];
 var firstName = AD[1];
 var lastName = AD[2];
+</script>
+
+<button onclick="getUserName()">Username</button>
 </body>
