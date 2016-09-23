@@ -3,6 +3,23 @@
 <body style="background-color: rgb(212, 223, 229)">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+ <p><form id="ADSearch" action="form_action.asp">
+        AD Lookup<br>
+         <select id="Type">
+          <option value="contains">INC Number</option>
+          <option value="begins">REQ Number</option>
+          <option value="ends">PRB Number</option>
+          <option value="exact">CRQ Number</option>
+        </select>
+        <input id="ADName" type="text" name="name">
+        
+<button type="button"
+onclick="document.getElementById('demo').innerHTML = Search(ADName,Type)">
+Click me</button>
+</form>
+
+<p id="demo"></p>
+
 <script> 
 function Search(search,SearchType) {
 var arrSearchResult = [];
@@ -48,11 +65,5 @@ while(!(objRecordSet.EoF)) {
 var locarray = new Array();
 for(var y = 0; y < arrAttrib.length; y++) { locarray.push(objRecordSet.Fields(y).value); } arrSearchResult.push(locarray); objRecordSet.MoveNext; } return arrSearchResult; } catch(e) { alert(e.message); } }
 </script>
-
-<button type="button"
-onclick="document.getElementById('demo').innerHTML = Search()">
-Click me</button>
-
-<p id="demo"></p>
 
 </body>
