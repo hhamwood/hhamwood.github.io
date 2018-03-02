@@ -158,7 +158,6 @@ window.open(homeurl,'iframe_a');
           <option value="pcser">Computer Serial</option>
           <option value="monmu">Monitor MU</option>
           <option value="monser">Monitor Serial</option>
-	  <option value="advmu">Advanced</option>
         </select>
         <input id="Number" type="text" name="number">
         </form>
@@ -173,7 +172,6 @@ window.open(homeurl,'iframe_a');
             var urlpcser = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/AST%3AComputerSystem/Best+Practice+View/?qual=%27Serial+Number%27LIKE%22";
             var urlmonmu = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/AST%3AMonitor/Best+Practice+View/?qual=%27CI+Name%2a%27LIKE%22";
             var urlmonser = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/AST%3AMonitor/Best+Practice+View/?qual=%27Serial+Number%27LIKE%22";
-	    var urladvmu = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/AST:AssetAdvancedSearch/Advanced%20Select%20CI/?qual=%27CI+Name%2a%27LIKE%22";
             var urlsend = ""
             var text = "";
         
@@ -192,8 +190,6 @@ window.open(homeurl,'iframe_a');
             case "monser":
               urlsend =  urlmonser + detail;
               break;
-	    case "advmu":
-		urlsend =  urladvmu + detail;
             default:
               text = "error";
           }
