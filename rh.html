@@ -115,60 +115,7 @@ urlsend = smart+detail;
         </script>
     </div>
 
-    <div class="Cell" style="background-color:#F2F2F2; color:#F86E00;border: 0px solid rgb(212,223,229)">
-        <p><form id="CISearch" action="form_action.asp">
-        Asset Lookup<br>
-         <select id="CI">
-          <option value="pcmu">Computer MU</option>
-          <option value="pcser">Computer Serial</option>
-          <option value="monmu">Monitor MU</option>
-          <option value="monser">Monitor Serial</option>
-	  <option value="advmu">Advanced</option>
-        </select>
-        <input id="Number" type="text" name="number">
-        </form>
-        
-        <button onclick="CIDetails()">Search</button>
-        
-        <script>
-        function CIDetails(){
-            var ci = document.getElementById("CI").value;
-            var detail= document.getElementById("Number").value;
-            var urlpcmu = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/AST%3AComputerSystem/Best+Practice+View/?qual=%27CI+Name%2a%27LIKE%22";
-            var urlpcser = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/AST%3AComputerSystem/Best+Practice+View/?qual=%27Serial+Number%27LIKE%22";
-            var urlmonmu = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/AST%3AMonitor/Best+Practice+View/?qual=%27CI+Name%2a%27LIKE%22";
-            var urlmonser = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/AST%3AMonitor/Best+Practice+View/?qual=%27Serial+Number%27LIKE%22";
-	    var urladv = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/AST%3AAssetAdvancedSearch/Advanced%20Select%20CI/?qual=%27CI+Name%27LIKE%22";
-	    
-            var urlsend = ""
-            var text = "";
-        
-        detail += "%25%22" + "";
-        
-        switch(ci) {
-            case "pcmu":
-              urlsend =  urlpcmu + detail;
-              break;
-            case "pcser":
-              urlsend =  urlpcser + detail;
-              break;
-            case "monmu":
-              urlsend =  urlmonmu + detail;
-              break;
-            case "monser":
-              urlsend =  urlmonser + detail;
-              break;
-	    case "advmu":
-		urlsend = urladv + detail;
-		break;
-	    default:
-              text = "error";
-          }
-          window.open(urlsend,'iframe_a');
-        }
-        </script>
-    </div>
-
+    
     <div class="Cell" style="background-color:#F2F2F2; color:#F86E00;border: 0px solid rgb(212,223,229)">
         <p><form id="CustomerSearch" action="form_action.asp">
         Username Lookup<br>
