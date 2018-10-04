@@ -168,44 +168,20 @@ urlsend = smart+detail;
 
     <div class="Cell" style="background-color:#F2F2F2; color:black;border: 0px solid rgb(212,223,229)">
         <p><form id="CustomerSearch" action="form_action.asp">
-        Customer Lookup<br>
-        <select id="Customer">
-          <option value="Username">Username</option>
-		  <option value="CustTix">Customer Tickets</option>
-          <option value="StaffProfile">Staff Profile</option>
-		  </select>
-        First <input type="text" id="fname" value="">
-        Last <input type="text" id="lname" value="">
+        Username Lookup<br>
+		<input type="text" id="fname" value="">
         </form>
         
         <button onclick="CustLookup()">Search</button>
         
         <script>
         function CustLookup(){
-            var TicketType = document.getElementById("Customer").value;
             var FirstName = document.getElementById("fname").value;
-			var LastName = document.getElementById("lname").value;
-			var urltix = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/SHR%3ALandingConsole/Default+Administrator+View/?mode=search&F304255500=HPD%3AHelp+Desk&F1000000076=FormOpenNoAppList&F303647600=SearchTicketWithQual&F304255610=%27First+Name%27LIKE%22%25";
-            var urlprofile = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/CTM%3APeople/Default+User+View/?qual=%27First+Name%2a%27LIKE%22";
- 			var urlLNProfile = "%25%25%22+AND+%27Last+Name%2a%2B%27LIKE%22";
-			var urlstaffprofile = "%25%22+AND+%27Contact+Type%27LIKE%22%25Staff%22";
-			var urlLNCustTix = "%25%25%22+AND+%27Last+Name%27LIKE%22%25";
-			var usrnamelookup = "https://servicedeskonline-smartit.onbmc.com/ux/smart-it/#/person/";
-			var urlsend = "";
-            var text = "";
-            var detail = "%25%22";
-        
-        switch(TicketType) {
-            case "CustTix":
-              urlsend =  urltix + FirstName + urlLNCustTix + LastName + detail;
-              break;
-            case "StaffProfile":
-              urlsend =  urlprofile + FirstName + urlLNProfile + LastName + urlstaffprofile;
-              break;
-	    case "Username":
-	      urlsend = usrnamelookup + FirstName;
-	      break;
-          }          
+	    var usrnamelookup = "https://servicedeskonline-smartit.onbmc.com/ux/smart-it/#/person/";
+	    var urlsend = "";
+
+      urlsend = usrnamelookup + FirstName;
+ 
           window.open(urlsend,'iframe_a');
         }
         </script>
