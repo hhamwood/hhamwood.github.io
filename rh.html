@@ -202,54 +202,10 @@ urlsend = smart+detail;
             case "StaffProfile":
               urlsend =  urlprofile + FirstName + urlLNProfile + LastName + urlstaffprofile;
               break;
-			case "Username":
-			  urlsend = usrnamelookup + FirstName;
-			  break;
+	    case "Username":
+	      urlsend = usrnamelookup + FirstName;
+	      break;
           }          
-          window.open(urlsend,'iframe_a');
-        }
-        </script>
-    </div>
-
-
-<div class="Cell" style="background-color:#F2F2F2; color:black;border: 0px solid rgb(212,223,229)">
-        <p><form id="KBSearch" action="form_action.asp">
-        Knowledge Lookup<br>
-         <select id="KB">
-          <option value="title">Article Title</option>
-          <option value="keyword">Article Keyword</option>
-          <option value="article ID">KBA #</option>
-         </select>
-        <input id="KBA" type="text" name="number">
-        </form>
-        
-        <button onclick="KBALookup()">Search</button>
-        
-        <script>
-        function KBALookup(){
-            var kb = document.getElementById("KB").value;
-            var detail= document.getElementById("KBA").value;
-            var urlkbtitle = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/RKM%3AKnowledgeArticleManager/Display+View/?qual=%27Title%27LIKE%22%25";
-            var urlkbkeyword = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/RKM%3AKnowledgeArticleManager/Display+View/?qual=%27Keywords%27LIKE%22%25";
-            var urlarticle = "https://servicedeskonline.onbmc.com/arsys/forms/monash-s/RKM%3AKnowledgeArticleManager/Display+View/?qual=%27Article+ID%27LIKE%22%25";
-            var urlsend = ""
-            var text = "";
-        
-        detail += "%25%22+AND+%27Status*%27%3C+900" + "";
-        
-        switch(kb) {
-            case "title":
-              urlsend =  urlkbtitle + detail;
-              break;
-            case "keyword":
-              urlsend =  urlkbkeyword + detail;
-              break;
-            case "article ID":
-              urlsend =  urlarticle + detail;
-              break;
-            default:
-              text = "error";
-          }
           window.open(urlsend,'iframe_a');
         }
         </script>
