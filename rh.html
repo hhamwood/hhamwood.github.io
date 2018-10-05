@@ -10,11 +10,10 @@ Need to use full INC or REQ to get best results.
 <!DOCTYPE html>
 <title>Remedy Helper</title>
 <body style="background-color:#F2F2F2">
-	<head>
+<head>
 <link rel = "icon" type="image/vnd.microsoft.icon" link href="favicon.ico"/>
-	</head>
+</head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--<link rel="stylesheet" href="w3.css">-->
 
 <style type="text/css">
     .Table
@@ -48,9 +47,8 @@ Need to use full INC or REQ to get best results.
     }
 	.sansserif 
 	{
-    font-family: "Trebuchet MS", Geneva, sans-serif;
-	}
-	
+    font-family: "Arial", Geneva, sans-serif;
+	}	
 </style>
 
 <script> 
@@ -76,6 +74,7 @@ function toggle() {
 
   ga('create', 'UA-70612214-1', 'auto');
   ga('send', 'pageview');
+
 </script>
 
     <div style="display: block;background-color:#F2F2F2">
@@ -84,12 +83,12 @@ function toggle() {
     <button onclick="window.open('#')" formtarget="_blank">New Tab</button>
     </div>
 
-<script> 
-function RemedyHome() {
-var homeurl = "https://servicedeskonline-smartit.onbmc.com/ux/smart-it/#/ticket-console";
-window.open(homeurl,'iframe_a');
-}
-</script>
+	<script> 
+	function RemedyHome() {
+	var homeurl = "https://servicedeskonline-smartit.onbmc.com/ux/smart-it/#/ticket-console";
+	window.open(homeurl,'iframe_a');
+	}
+	</script>
 
 <div class="sansserif" id="toggleText" style="display: block;background-color:#F2F2F2">
 <div class="Table">
@@ -101,36 +100,36 @@ window.open(homeurl,'iframe_a');
         <input id="TicketNumber" type="text" name="number">
 	</form>     
         <button onclick="TicketSearch()">Search</button>
+	    
         <script>
         function TicketSearch(){
-            var detail = document.getElementById("TicketNumber").value;
-            var smart = "https://servicedeskonline-smartit.onbmc.com/ux/smart-it/#/search/";
-            var urlsend = ""
+        var detail = document.getElementById("TicketNumber").value;
+        var smart = "https://servicedeskonline-smartit.onbmc.com/ux/smart-it/#/search/";
+        var urlsend = ""
         
-urlsend = smart+detail;
-          window.open(urlsend,'iframe_a');
+	urlsend = smart+detail;
+        window.open(urlsend,'iframe_a');
         }
         </script>
     </div>
-
     
     <div class="Cell" style="background-color:#F2F2F2; color:#F86E00;border: 0px solid rgb(212,223,229)">
         <form id="CustomerSearch" action="form_action.asp">
         Username Lookup<br>
 	<input type="text" id="fname" value="">
-	</form>
+	</form>  
 	    
 	<button onclick="CustLookup()">Search</button>
         
         <script>
         function CustLookup(){
-            var FirstName = document.getElementById("fname").value;
-	    var usrnamelookup = "https://servicedeskonline-smartit.onbmc.com/ux/smart-it/#/person/";
-	    var urlsend = "";
+        var FirstName = document.getElementById("fname").value;
+	var usrnamelookup = "https://servicedeskonline-smartit.onbmc.com/ux/smart-it/#/person/";
+	var urlsend = "";
 
-      urlsend = usrnamelookup + FirstName;
+      	urlsend = usrnamelookup + FirstName;
  
-          window.open(urlsend,'iframe_a');
+        window.open(urlsend,'iframe_a');
         }
         </script>
     </div>
